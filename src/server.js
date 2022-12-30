@@ -12,7 +12,7 @@ server.get('/goodbye', (req, res) => res.send('Nailed it!'));
 
 server.get('/person', (req, res) => {
   if(req.query.name){
-  res.status(200).send({ name: 'Picard' });
+    res.status(200).send({ name: req.query.name });
   } else {
   res.status(500).send();
   }
