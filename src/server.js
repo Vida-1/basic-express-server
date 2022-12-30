@@ -4,12 +4,15 @@ const express = require('express');
 
 const server = express();
 
-server.get('/hello', (_, res) => res.send('Hello!'));
-server.get('/goodbye', (_, res) => res.send('Nailed it!'));
+server.get('/hello', (req, res) => res.send('Hello!'));
+server.get('/goodbye', (req, res) => res.send('Nailed it!'));
 
-server.get('/person', (_, res) => {
-  if(_.query.name){
-  res.status(200).send({ name: 'Picard' });
+
+
+
+server.get('/person', (req, res) => {
+  if(req.query.name){
+    res.status(200).send({ name: req.query.name });
   } else {
   res.status(500).send();
   }

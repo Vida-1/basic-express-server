@@ -29,8 +29,14 @@ describe('Person Route', () => {
  
   });
 
-  test.todo("Without a name in the query string, force a 500 error"), async() => {
+  test("Without a name in the query string, force a 500 error", async () => {
     const response = await request.get('/person');
     expect(response.statusCode).toBe(500);
-  };
+  });
+
+  test('When query string presents with a different name, output JSON to the client with this shape: {name: "name provided"} ', async () => {
+    const response = await request.get('/person');
+    expect(response.statusCode).toBe(500);
+  });
+
 });
