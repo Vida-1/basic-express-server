@@ -1,4 +1,4 @@
-const server = require('../src/server');
+const {server, nameValidator} = require('../src/server');
 const supertest = require('supertest');
 const { get } = require('../src/server');
 
@@ -39,4 +39,23 @@ describe('Person Route', () => {
     expect(response.statusCode).toBe(500);
   });
 
+  describe(`name validator`, () => {
+    test('with name Fauntleroy', () => {
+      const req = { query: { name: 'Fauntleroy' } };
+      const next = jest.fn();
+
+      nameValidator(req, {}, next);
+ 
+      expect(req.name).toBe('Fauntleroy');
+      expect(next).toHaveBeenCalled();
+    });
+
+      test('with no name', () => {
+      const req = { query:{}};
+      const next = jest.fn();
+      nameValidator(req, {}, next);
+      
+      expect(next).toHaveBeenCalledWith('Failed validation: No name in query!');
+    });
+  });
 });
