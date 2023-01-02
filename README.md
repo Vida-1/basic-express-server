@@ -16,20 +16,19 @@
 
 i.e.
 
-- `PORT` - Port Number
-- `DATABASE_URL` - URL to the running Postgres instance/db
+- `PORT` - 3000 for local testing
+
 
 #### How to initialize/run your application (where applicable)
 
-- e.g. `npm start`
+-local start: nodemon
+-Manually deployed to cloud: https://basic-express-server-hau8.onrender.com/hello
 
 #### How to use your library (where applicable)
+N/A
 
 #### Tests
-
-- How do you run tests?
-- Any tests of note?
-- Describe any tests that you did not complete, skipped, etc
+Test provided during lecture. I think I understood what was going on in all of them except maybe the mock refactorings. Will dedicate more time to those.
 
 #### UML
 
